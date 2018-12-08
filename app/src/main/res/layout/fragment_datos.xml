@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="120dp"
+              android:theme="@style/AppTheme">
+
+    <ImageView
+            android:id="@+id/ivDato"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/foto"/>
+    <TextView
+            android:id="@+id/textViewDatos"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:textColor="?attr/colorAccent" android:textStyle="bold" android:paddingLeft="10dp"
+            android:paddingTop="20dp" android:paddingRight="10dp"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/textViewDatos2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp" android:textColor="?attr/colorAccent" android:paddingTop="20dp"/>
+        <TextView
+                android:id="@+id/textViewDatos3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textSize="14sp"
+                android:layout_weight="1" android:textColor="?attr/colorAccent" android:textAlignment="textEnd"
+                android:paddingEnd="10dp" android:paddingStart="0dp"/>
+    </LinearLayout>
+
+</LinearLayout>

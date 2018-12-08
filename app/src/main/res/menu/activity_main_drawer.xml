@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <item
+            android:id="@+id/principal"
+            android:icon="@drawable/icono"
+            android:title="@string/principalm"/>
+
+
+    <item android:title="@string/menu">
+        <menu android:checkableBehavior="single">
+            <item
+                    android:id="@+id/show_juegos"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="@string/catalogo"/>
+            <item
+                    android:id="@+id/add_juego"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="@string/addjuego"/>
+            <item
+                    android:id="@+id/tienda"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="@string/tienda"/>
+
+        </menu>
+    </item>
+
+
+    <item android:title="@string/informaci_n">
+        <menu>
+            <item
+                    android:id="@+id/share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="@string/compartir"/>
+            <item
+                    android:id="@+id/info"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="@string/contacto"/>
+
+        </menu>
+    </item>
+
+</menu>
