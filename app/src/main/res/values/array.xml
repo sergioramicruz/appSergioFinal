@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="generos">
+        <item>Accion</item>
+        <item>Aventura</item>
+        <item>Rol</item>
+        <item>Deportes</item>
+        <item>Carreras</item>
+        <item>Lucha</item>
+    </string-array>
+</resources>
