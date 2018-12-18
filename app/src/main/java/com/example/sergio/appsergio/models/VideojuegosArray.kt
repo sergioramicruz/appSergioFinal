@@ -1,10 +1,10 @@
-package com.example.sergio.appsergio
+package com.example.sergio.appsergio.models
 
 class VideojuegosArray {
     var videojuegos: ArrayList<Videojuego> = ArrayList<Videojuego>()
 
     fun addJuegos(nom:String, gen:String, dur:Int, foto:String){
-        val v = Videojuego(nom,gen,dur,foto)
+        val v = Videojuego(nom, gen, dur, foto)
         videojuegos?.add(v)
     }
 

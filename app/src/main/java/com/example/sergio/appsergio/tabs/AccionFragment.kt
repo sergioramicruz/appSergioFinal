@@ -1,4 +1,4 @@
-package com.example.sergio.appsergio
+package com.example.sergio.appsergio.tabs
 
 import android.content.Context
 import android.graphics.*
@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_catalogo.*
+import kotlinx.android.synthetic.main.fragment_juegos.*
 import java.io.IOException
 import java.net.URL
 import android.os.StrictMode
@@ -18,12 +18,16 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.widget.Toast
+import com.example.sergio.appsergio.R
+import com.example.sergio.appsergio.models.VideojuegosArray
+import com.example.sergio.appsergio.adapters.DatosAdapter
 
-class CatalogoFragment : Fragment() {
+class AccionFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private val p = Paint()
     private var adaptera : DatosAdapter?=null
-    var videojuegos: VideojuegosArray = VideojuegosArray()
+    var videojuegos: VideojuegosArray =
+        VideojuegosArray()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,18 +37,18 @@ class CatalogoFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_catalogo,container,false)
+        return inflater.inflate(R.layout.fragment_juegos,container,false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mostrarVideojuegos()
         val juegos = videojuegos.getJuegos()
         RecyclerJuegos.layoutManager = LinearLayoutManager(context)
-        RecyclerJuegos.adapter=DatosAdapter(juegos,context!!)
+        RecyclerJuegos.adapter= DatosAdapter(juegos, context!!)
         RecyclerJuegos.layoutManager = GridLayoutManager(context!!, 1)
         adaptera= DatosAdapter(juegos, context!!)
         RecyclerJuegos.adapter = adaptera
+        mostrarVideojuegos()
         initSwipe()
     }
 
@@ -73,7 +77,7 @@ class CatalogoFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            CatalogoFragment().apply {
+            AccionFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
@@ -85,7 +89,9 @@ class CatalogoFragment : Fragment() {
             val gson = Gson()
             val juegos = gson.fromJson(jsonTexto, VideojuegosArray::class.java)
             for (item in juegos.videojuegos.iterator()) {
-                videojuegos.addJuegos(item.nombre, item.genero, item.duracion, item.foto)
+                if(item.genero.equals("Accion")) {
+                        videojuegos.addJuegos(item.nombre, item.genero, item.duracion, item.foto)
+                    }
             }
         }catch (e: Exception){
             Toast.makeText(context,  "Error en la conexión", Toast.LENGTH_SHORT).show()
@@ -154,5 +160,9 @@ class CatalogoFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(RecyclerJuegos)
     }
 
+}
+
+private fun String.equals(other: String, ignoreCase: () -> Unit): Boolean {
+    return true
 }
 
